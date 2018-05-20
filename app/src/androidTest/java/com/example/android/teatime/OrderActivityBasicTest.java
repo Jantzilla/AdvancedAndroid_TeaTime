@@ -18,6 +18,7 @@ package com.example.android.teatime;
 
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 
 /**
@@ -29,7 +30,9 @@ import org.junit.runner.RunWith;
     @RunWith(AndroidJUnit4.class)
 public class OrderActivityBasicTest {
 
-    // TODO (2) Add the rule that provides functional testing of a single activity
+    // COMPLETED (2) Add the rule that provides functional testing of a single activity
+    @Rule public ActivityTestRule<OrderActivity> mActivityTestRule
+            = new OrderActivityTestRule<>(OrderActivity.class);
 
     // TODO (3) Finish writing this test which will:
     //          - Check that the initial quantity is zero
