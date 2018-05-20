@@ -43,7 +43,7 @@ public class OrderActivityBasicTest {
     public ActivityTestRule<OrderActivity> mActivityTestRule
             = new ActivityTestRule<>(OrderActivity.class);
 
-    // TODO (3) Finish writing this test which will:
+    // COMPLETED (3) Finish writing this test which will:
     //          - Check that the initial quantity is zero
     //          - Click on the decrement button
     //          - Verify that the decrement button won't decrease the quantity 0 and cost below $0.00
@@ -52,7 +52,7 @@ public class OrderActivityBasicTest {
     public void clickDecrementButton_ChangesQuantityAndCost() {
         onView((withId(R.id.decrement_button))).perform(click());
 
-        onView(withId(R.id.quantity_text_view)).check(matches(withText("1")));
-        onView(withId(R.id.decrement_button)).check(matches(withText("$5.00")));
+        onView(withId(R.id.quantity_text_view)).check(matches(withText("0")));
+        onView(withId(R.id.cost_text_view)).check(matches(withText("$0.00")));
     }
 }
