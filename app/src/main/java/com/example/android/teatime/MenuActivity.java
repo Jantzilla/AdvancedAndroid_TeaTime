@@ -59,7 +59,7 @@ public class MenuActivity extends AppCompatActivity implements ImageDownloader.D
 
 
     /**
-     * TODO (4) Using the method you created, get the IdlingResource variable.
+     * COMPLETED (4) Using the method you created, get the IdlingResource variable.
      * Then call downloadImage from ImageDownloader. To ensure there's enough time for IdlingResource
      * to be initialized, remember to call downloadImage in either onStart or onResume.
      * This is because @Before in Espresso Tests is executed after the activity is created in
@@ -78,6 +78,7 @@ public class MenuActivity extends AppCompatActivity implements ImageDownloader.D
         Toolbar menuToolbar = (Toolbar) findViewById(R.id.menu_toolbar);
         setSupportActionBar(menuToolbar);
         getSupportActionBar().setTitle(getString(R.string.menu_title));
+        getIdlingResource();
 
         // Create an ArrayList of teas
         final ArrayList<Tea> teas = new ArrayList<>();
@@ -108,6 +109,12 @@ public class MenuActivity extends AppCompatActivity implements ImageDownloader.D
                 startActivity(mTeaIntent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ImageDownloader.downloadImage(this, MenuActivity.this, mIdlingResource);
     }
 
     @Override
