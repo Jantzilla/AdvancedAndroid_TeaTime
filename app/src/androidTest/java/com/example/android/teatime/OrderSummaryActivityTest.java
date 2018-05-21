@@ -16,6 +16,8 @@
 
 package com.example.android.teatime;
 
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Rule;
@@ -31,11 +33,13 @@ public class OrderSummaryActivityTest {
             OrderSummaryActivity.class);
 
 
-    // TODO (3) Finish this method which runs before each test and will stub all external
+    // COMPLETED (3) Finish this method which runs before each test and will stub all external
     // intents so all external intents will be blocked
 
     public void stubAllExternalIntents() {
-
+        // By default Espresso Intents does not stub any Intents. Stubbing needs to be setup before
+        // every test run. In this case all external Intents will be blocked.
+        intending(not(isInternal())).respondWith(new Instrumentation.ActivityResult(Activity.RESULT_OK, null));
     }
 
 
