@@ -18,13 +18,17 @@ package com.example.android.teatime;
 
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 
 // COMPLETED (1) Add annotation to specify AndroidJUnitRunner class as the default test runner
 @RunWith(AndroidJUnit4.class)
 public class OrderSummaryActivityTest {
 
-    // TODO (2) Add the rule that indicates we want to use Espresso-Intents APIs in functional UI tests
+    // COMPLETED (2) Add the rule that indicates we want to use Espresso-Intents APIs in functional UI tests
+    @Rule
+    public IntentsTestRule<OrderSummaryActivity> mActivityRule = new IntentsTestRule<>(
+            OrderSummaryActivity.class);
 
 
     // TODO (3) Finish this method which runs before each test and will stub all external
